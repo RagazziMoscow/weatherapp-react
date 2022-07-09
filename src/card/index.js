@@ -1,6 +1,10 @@
+import { memo, useContext } from "react";
 import { useWeather } from "../hooks/useWeather";
 
-export const Card = ({ city }) => {
+import { GlobalContext } from "../App";
+
+export const Card = memo(({ city }) => {
+    const { dispatch } = useContext(GlobalContext);
     const data = useWeather(city);
 
     if (!data) return;
@@ -9,8 +13,26 @@ export const Card = ({ city }) => {
     const { description, icon } = weather[0];
     const { temp, humidity, feels_like } = main;
 
+    const handleOnEdit = () => {
+        dispatch({
+            type: 'EDIT_CITY',
+            payload: city
+        });
+    };
+
+    const handleOnDelete = () => {
+        dispatch({
+            type: 'DELETE_CITY',
+            payload: city
+        });
+    };
+
     return (    
         <div className="Card">
+            <div className="ActionButtonWrap">
+                <button className="ActionButton" onClick={handleOnEdit}>edit</button>
+                <button className="ActionButton" onClick={handleOnDelete}>X</button>
+            </div>
             <div className="MainInfo">
                 <img
                     className="Icon"
@@ -27,4 +49,4 @@ export const Card = ({ city }) => {
             </div>
         </div>
     );
-}
+});
