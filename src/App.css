@@ -39,6 +39,12 @@
   display: flex;
 }
 
+.Select {
+  margin-bottom: 24px;
+  padding: 4px 8px;
+  width: 100%;
+}
+
 .Card {
   width: 200px;
   height: fit-content;

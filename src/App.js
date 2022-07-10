@@ -1,24 +1,22 @@
 import React from 'react';
 import './App.css';
 import { Input } from './input';
-import { Card } from './card';
+import { CardList } from './CardList';
+import { ErrorBoundary } from './ErrorBoundary';
 import { useCitiesList } from './hooks/useCitiesList';
 
 export const GlobalContext = React.createContext();
 
 function App() {
   const [state, dispatch] = useCitiesList();
-  const { citiesList } = state;
 
   return (
     <GlobalContext.Provider value={{ state, dispatch }}>
       <div className="Main">
         <Input />
-        <div className='CardList'>
-          {
-            citiesList.map((city, index) => <Card key={index} city={city} />)
-          }
-        </div>
+        <ErrorBoundary>
+          <CardList />
+        </ErrorBoundary>
       </div>
     </GlobalContext.Provider>
   );
