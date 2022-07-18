@@ -12,8 +12,6 @@ export class ErrorBoundary extends React.Component {
     }
 
     render() {
-        console.log(this.props.children);
-
         if (this.state.error) {
             return <div>Component has crashed</div>
         } else {

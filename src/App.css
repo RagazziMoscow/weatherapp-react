@@ -49,12 +49,14 @@
   width: 200px;
   height: fit-content;
   padding: 12px;
+  display: block;
   margin-left: 24px;
   border-radius: 12px;
   background-color: #3A8AC0;
   font-size: 14px;
   color: #fff;
   box-shadow: 3px 3px 12px 1px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
 }
 
 .Card:first-child {
@@ -93,7 +95,7 @@
   font-weight: 500;
 }
 
-.Temperature::after {
+.TemperatureIcon::after {
   content: "°";
 }
 
@@ -106,3 +108,41 @@
 }
 
 /* card finish */
+
+/* SingleCity start */
+.SingleCityWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DayliCards {
+  margin-top: 24px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.DailyCard {
+  background-color: #3A8AC0;
+  border-radius: 12px;
+  margin-left: 8px;
+  box-shadow: 3px 3px 12px 1px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.GoBack {
+  color: black;
+  margin-bottom: 24px;
+  text-decoration: none;
+}
+
+.GoBack:hover {
+  text-decoration: underline;
+}
+
+/* SingleCity finish */
