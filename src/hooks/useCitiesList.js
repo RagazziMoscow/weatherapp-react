@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "react";
+import { removeElementFromArray } from "../helpers";
 
 const initialState = {
     inputValue: '',
@@ -19,14 +20,20 @@ const reducer = (state, action) => {
 
             return {
                 ...state,
-                citiesList: [...state.citiesList.filter(city => city !== editingCity), action.payload],
+                citiesList: [...removeElementFromArray(editingCity, state.citiesList), action.payload],
                 inputValue: initialState.inputValue,
                 editingCity: ''
             };
         }
         case 'DELETE_CITY': {
-            const newArray = state.citiesList.filter(city => city !== action.payload);
-            return { ...state, citiesList: newArray };
+            const newArray = removeElementFromArray(action.payload, state.citiesList);
+
+            return {
+                ...state,
+                citiesList: newArray,
+                editingCity: initialState.editingCity,
+                inputValue: initialState.inputValue
+            };
         }
         case 'CHANGE_INPUT_VALUE': {
             return { ...state, inputValue: action.payload };

@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from '../card';
 import { withGlobalState } from '../hocs/withGlobalState';
 
-class CardListNoState extends React.Component {
+export class CardListNoState extends React.Component {
     // eslint-disable-next-line
     constructor(props) {
         super(props);

@@ -1,4 +1,4 @@
-export const DayliCard = ({ dailyCard }) => {
+export const DailyCard = ({ dailyCard }) => {
     const { dt, weather, temp: { day } } = dailyCard;
     const { main, icon } = weather[0];
     const currentDate = new Date(dt * 1000);

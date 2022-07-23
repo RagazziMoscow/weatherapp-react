@@ -1,6 +1,7 @@
 import { useRef, useContext } from "react";
 
 import { GlobalContext } from "../App";
+import { InputTag } from "./InputTag";
 
 export const Input = () => {
     const { dispatch, state: { inputValue, editingCity } } = useContext(GlobalContext);
@@ -34,7 +35,7 @@ export const Input = () => {
 
     return (
         <div className="InputWrap">
-            <input className="Input" onChange={handleOnChange} value={inputValue} ref={inputRef} />
+            <InputTag {...{ handleOnChange, inputValue, inputRef }} />
             {
                 editingCity
                     ?   <button className="Button" onClick={handleOnDone}>done</button>
